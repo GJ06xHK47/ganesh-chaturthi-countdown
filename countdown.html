@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown to Ganesh Chaturthi 2025</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .timer {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .timer h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .time {
+            font-size: 1.5em;
+            color: #007bff;
+        }
+        img {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- ganesha.jpg -->
+    <img src="ganesha.jpg" alt="Smiling Ganeshji">
+
+    <div class="timer">
+        <h1>Countdown to Ganesh Chaturthi 2025</h1>
+        <div class="time" id="countdown"></div>
+    </div>
+
+    <script>
+        function updateCountdown() {
+            const targetDate = new Date("August 29, 2025 00:00:00").getTime();
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML =
+                `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            if (distance < 0) {
+                document.getElementById("countdown").innerHTML = "Ganesh Chaturthi is here!";
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
